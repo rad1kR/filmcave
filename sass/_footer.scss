@@ -1,0 +1,23 @@
+@use "variables" as v;
+
+footer {
+  width: 100%;
+  height: 10.5rem;
+  background-color: var(--color-primary);
+  visibility: hidden;
+}
+
+.footer_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: v.$xl;
+  margin-top: v.$container_margin_top;
+  margin-inline: auto;
+  padding-block: 1.5rem;
+
+  img {
+    width: 6rem;
+    margin-bottom: 1.5rem;
+  }
+}

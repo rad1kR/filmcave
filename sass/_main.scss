@@ -1,0 +1,202 @@
+@use "variables" as v;
+@use "extends";
+
+h2 {
+  color: var(--color-secondary);
+}
+
+// trending section
+.trending_container {
+  max-width: v.$xl;
+  margin-bottom: v.$container_margin_bottom;
+  margin-inline: auto;
+  padding-inline: v.$container_padding_inline;
+
+  @media (max-width: v.$md) {
+    padding-inline: v.$m_container_padding_inline;
+  }
+
+  button {
+    border: none;
+    width: 8rem;
+    padding: 0.4rem 0.8rem;
+    margin-block: v.$wrapper_margin_top;
+    box-shadow: v.$b_shadow;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .btn_movies {
+    border-radius: 1.5rem 0 0 1.5rem;
+  }
+  .btn_tvshows {
+    border-radius: 0 1.5rem 1.5rem 0;
+    margin-left: -0.25rem;
+  }
+}
+
+.trending_section {
+  position: relative;
+}
+
+.trending_wrapper {
+  display: flex;
+  gap: 0.8rem;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  @extend %scrollbar_hide;
+
+  &.tvshows {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.card {
+  border-radius: 0.5rem;
+  display: inline-block;
+  width: 10rem;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-primary);
+
+  a {
+    width: 100%;
+    height: 100%;
+
+    color: var(--color-text);
+  }
+
+  img {
+    width: 100%;
+    height: 15rem;
+  }
+
+  .badge {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-weight: 700;
+    color: #0d0d0d;
+    background-color: var(--color-secondary);
+    transform: translate(10%, -50%);
+  }
+
+  .text_wrapper {
+    margin-top: -0.6rem;
+  }
+
+  h3 {
+    padding-inline: 0.4rem;
+  }
+
+  .date {
+    padding: 0.4rem;
+    font-weight: 300;
+  }
+}
+
+// top rated section
+.top_rated_container {
+  max-width: v.$xl;
+  margin-bottom: v.$container_margin_bottom;
+  margin-inline: auto;
+  padding-inline: v.$container_padding_inline;
+
+  @media (max-width: v.$md) {
+    padding-inline: v.$m_container_padding_inline;
+  }
+}
+
+.top_rated_wrapper {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: v.$wrapper_margin_top;
+
+  @media (max-width: v.$md) {
+    flex-direction: column;
+  }
+
+  .top_rated {
+    flex-grow: 1;
+
+    h3 {
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    h3::before {
+      content: "| ";
+      color: var(--color-secondary);
+    }
+
+    li:nth-child(even) {
+      background-color: var(--color-primary);
+    }
+
+    li:not(:last-child) {
+      margin-bottom: 0.2rem;
+    }
+
+    li {
+      border-radius: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 4rem;
+      overflow: hidden;
+
+      a {
+        display: flex;
+        align-items: center;
+        color: var(--color-text);
+      }
+
+      img {
+        height: 4rem;
+        margin-right: 0.8rem;
+      }
+
+      p {
+        padding-inline: 0.8rem;
+      }
+    }
+  }
+}
+
+// popular people section
+.people_main_container {
+  max-width: v.$xl;
+  margin-bottom: v.$container_margin_bottom;
+  margin-inline: auto;
+  padding-inline: v.$container_padding_inline;
+}
+
+.people_main_wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+  width: 100%;
+  margin-top: v.$wrapper_margin_top;
+  overflow-x: scroll;
+  @extend %scrollbar_hide;
+}
+
+.profile_card {
+  display: inline-block;
+  width: 10rem;
+  text-align: center;
+
+  a {
+    color: var(--color-text);
+  }
+
+  img {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+}

@@ -1,0 +1,25 @@
+@use "variables" as v;
+
+.people_container {
+  max-width: v.$xl;
+  margin-top: calc(4rem + #{v.$container_margin_top});
+  margin-inline: auto;
+  padding-inline: v.$container_padding_inline;
+
+  .people_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 0.8rem;
+    margin-top: v.$wrapper_margin_top;
+  }
+}
+
+.profile {
+  width: 10rem;
+
+  a {
+    color: var(--color-text);
+  }
+}

@@ -1,0 +1,275 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "extends";
+
+nav {
+  z-index: 3;
+  position: fixed;
+  inset: 0;
+  top: -4rem;
+  height: 4rem;
+  background-color: var(--color-primary);
+  transition: top 0.4s ease-in-out;
+}
+
+// navigation
+.nav_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: v.$xl;
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: v.$container_padding_inline;
+}
+
+.logo_wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-block: 0.4rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: v.$ternary_dark_color;
+  }
+
+  img {
+    display: inline-block;
+    height: 100%;
+    padding-right: 0.2rem;
+  }
+
+  span {
+    color: v.$secondary_dark_color;
+    transform: translateY(0.2rem);
+  }
+}
+
+.menu_wrapper {
+  @media (max-width: v.$md) {
+    display: none;
+  }
+
+  ul {
+    @include m.flex-center;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-text);
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.icons_wrapper {
+  @include m.flex-center;
+  height: 100%;
+
+  svg {
+    width: 1.6rem;
+    fill: var(--color-text);
+  }
+}
+
+.toggle_switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 3rem;
+  height: 1.5rem;
+  margin-right: 0.4rem;
+
+  svg {
+    z-index: 1;
+    height: 60%;
+  }
+
+  input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  .slider {
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    background-color: var(--color-secondary);
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .slider::before {
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    content: "";
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background-color: var(--color-text);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  input:checked + .slider {
+    background-color: var(--color-background);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(1.5rem);
+  }
+}
+
+// search bar
+.search_bar_container {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 2rem;
+  background-color: #f2f2f2;
+  box-shadow: v.$b_shadow;
+  opacity: 0;
+}
+
+.open {
+  opacity: 1;
+}
+
+.search_bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: v.$xl;
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: v.$container_padding_inline;
+  color: rgba(0, 0, 0, 0.5);
+
+  svg {
+    height: 60%;
+    fill: rgba(0, 0, 0, 0.5);
+  }
+
+  svg:nth-of-type(1) {
+    cursor: inherit;
+  }
+
+  svg:nth-of-type(2):hover {
+    transform: rotate(0.5turn);
+    transition: transform 0.2s linear;
+  }
+
+  input {
+    width: 100%;
+    margin-inline: 0.8rem;
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+  }
+
+  input::placeholder {
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+.search_list_wrapper {
+  position: absolute;
+  width: 100%;
+  background-color: #f2f2f2;
+
+  .search_list {
+    max-width: v.$xl;
+    margin-inline: auto;
+
+    li {
+      max-width: 90%;
+      margin-inline: auto;
+    }
+
+    li:not(:last-child) {
+      border-bottom: 0.01rem solid rgba(0, 0, 0, 0.5);
+    }
+
+    a {
+      display: block;
+      padding: 0.4rem 3rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+// mobile menu
+.mobile_menu_button {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 1.6rem;
+
+  svg {
+    fill: var(--color-text);
+  }
+
+  @media (max-width: v.$md) {
+    display: flex;
+  }
+}
+
+.mobile_menu_wrapper {
+  z-index: 4;
+  position: absolute;
+  display: none;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  .close_button {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    padding: 0.8rem;
+  }
+
+  .mobile_menu {
+    width: 17.5rem;
+    height: 100%;
+    background-color: var(--color-background);
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  svg {
+    height: 1.5rem;
+    fill: var(--color-text);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    font-size: v.$m_header_3;
+    color: var(--color-text);
+
+    svg {
+      margin-right: 0.8rem;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+// breakpoints
+$sm: calc(576rem / 16); // mobile
+$md: calc(768rem / 16); // tablet
+$lg: calc(992rem / 16); // laptop
+$xl: calc(1200rem / 16); // large screnn
+$xxl: calc(1400rem / 16);
+
+// colors
+// light theme
+$light_color: #d9d9d9;
+$bg_light_color: #d9d9d9;
+$txt_light_color: #000000;
+$primary_light_color: #bfbfbf;
+$secondary_light_color: #ff9b57;
+
+// dark theme
+$bg_dark_color: #0d0d0d;
+$txt_dark_color: #f2f2f2;
+$txt_dark_darker_color: #a6a6a6;
+$primary_dark_color: #262626;
+$secondary_dark_color: #ff9b57;
+$ternary_dark_color: #1ae2cf;
+
+// fonts
+$primary_font: "Poppins", sans-serif;
+
+// margin
+$container_margin_top: 1rem;
+$container_margin_bottom: 2rem;
+$wrapper_margin_top: 1rem;
+
+// padding
+$container_padding_inline: 1.5rem;
+$m_container_padding_inline: 0.5rem;
+
+// font size
+$header_1: 3rem;
+$header_2: 2.375rem;
+$header_3: 1.5rem;
+$text: 1.25rem;
+$details: 1rem;
+// mobile font size
+$m_header_1: 2.375rem;
+$m_header_2: 1.75rem;
+$m_header_3: 1.25rem;
+$m_text: 1rem;
+$m_details: 0.875rem;
+
+// box-shadow
+$b_shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;

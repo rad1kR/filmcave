@@ -1,0 +1,103 @@
+@use "variables" as v;
+@use "extends";
+
+.content_container {
+  max-width: v.$xl;
+  margin-top: calc(4rem + #{v.$container_margin_top});
+  margin-inline: auto;
+  padding-inline: v.$container_padding_inline;
+}
+
+.message_404 {
+  display: none;
+  max-width: 100%;
+}
+
+.content_wrapper {
+  width: 100%;
+
+  // image + overview
+  .basic_info_wrapper {
+    display: flex;
+    margin-bottom: v.$container_margin_bottom;
+
+    @media (max-width: v.$md) {
+      flex-direction: column;
+    }
+
+    img {
+      border-radius: 0.5rem;
+      max-width: 18.75rem;
+    }
+
+    .overview_wrapper {
+      max-height: 28.125rem;
+      padding: 0.5rem 1.5rem;
+      overflow-y: scroll;
+
+      @media (max-width: v.$md) {
+        padding: 0;
+      }
+
+      p {
+        margin-bottom: 0.5rem;
+      }
+
+      p:not(:last-child) {
+        font-style: italic;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .overview_heading {
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+
+    &::before {
+      content: "| ";
+      color: var(--color-secondary);
+    }
+  }
+
+  // cast section
+  .cast_wrapper {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: v.$container_margin_bottom;
+    overflow-x: scroll;
+    @extend %scrollbar_hide;
+
+    img {
+      border-radius: 0.5rem;
+    }
+
+    h3 {
+      text-align: center;
+    }
+  }
+
+  // reviews section
+  .reviews_wrapper {
+    li {
+      border-radius: 0.5rem;
+      margin-bottom: 0.8rem;
+      padding: 1rem;
+      background-color: var(--color-primary);
+
+      div p:first-child {
+        margin-bottom: 0.8rem;
+        font-style: italic;
+      }
+
+      span {
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      div p:last-child {
+        font-weight: 300;
+      }
+    }
+  }
+}
